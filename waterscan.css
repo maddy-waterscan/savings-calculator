@@ -1,31 +1,159 @@
 /* Waterscan calculator styles - lightweight and theme friendly */
-.ws-wrapper{max-width:980px;margin:0 auto;padding:16px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:#111}
-.ws-card{background:#fff;border:1px solid #e6e6e6;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.06);overflow:hidden}
-.ws-header{padding:20px 20px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-.ws-title{margin:0 0 6px;font-size:22px}
-.ws-sub{margin:0 0 12px;color:#555}
-.ws-controls{padding:8px 20px 0}
-.ws-field{margin:14px 0}
-.ws-field label{font-weight:600;display:block;margin-bottom:8px}
-.ws-inputs{display:grid;grid-template-columns:1fr 120px;gap:12px;align-items:center}
-input[type=range]{width:100%}
-input[type=number]{width:100%;padding:8px;border:1px solid #ddd;border-radius:8px}
-.ws-split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ws-adv{margin-top:8px}
-.ws-results{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px 20px;border-top:1px solid #f0f0f0}
-.ws-metric{background:#fafafa;border:1px solid #f0f0f0;border-radius:12px;padding:12px;text-align:center}
-.ws-kpi{font-size:20px;font-weight:800}
-.ws-kpi-sub{font-size:12px;color:#666}
-.ws-chart{padding:8px 20px 16px}
-.ws-bar{height:20px;background:#f0f3f7;border-radius:12px;overflow:hidden;display:flex}
-.ws-bar-seg{height:100%}
-.ws-bar-base{background:#c8d2e0}
-.ws-bar-save{background:#8fd19e}
-.ws-chart-legend{display:flex;gap:16px;margin-top:8px;font-size:12px;color:#555}
-.ws-leg-base::before,.ws-leg-save::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
-.ws-leg-base::before{background:#c8d2e0}
-.ws-leg-save::before{background:#8fd19e}
-.ws-footer{padding:8px 20px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.ws-cta{padding:10px 14px;border:0;border-radius:10px;background:#0a6cff;color:#fff;font-weight:700;cursor:pointer; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-.ws-note{margin:0;color:#666;font-size:12px; font-weight: bold;}
-@media(max-width:800px){.ws-results{grid-template-columns:1fr 1fr}.ws-split{grid-template-columns:1fr}.ws-inputs{grid-template-columns:1fr 100px}}
+.ws-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #111;
+}
+.ws-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.ws-header {
+  padding: 20px 20px 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.ws-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+.ws-sub {
+  margin: 0 0 12px;
+  color: #555;
+}
+.ws-controls {
+  padding: 8px 20px 0;
+}
+.ws-field {
+  margin: 14px 0;
+}
+.ws-field label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+.ws-inputs {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 12px;
+  align-items: center;
+}
+input[type="range"] {
+  width: 100%;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.ws-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.ws-adv {
+  margin-top: 8px;
+}
+.ws-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+.ws-metric {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.ws-kpi {
+  font-size: 20px;
+  font-weight: 800;
+}
+.ws-kpi-sub {
+  font-size: 12px;
+  color: #666;
+}
+.ws-chart {
+  padding: 8px 20px 16px;
+}
+.ws-bar {
+  height: 20px;
+  background: #f0f3f7;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+}
+.ws-bar-seg {
+  height: 100%;
+}
+.ws-bar-base {
+  background: #c8d2e0;
+}
+.ws-bar-save {
+  background: #8fd19e;
+}
+.ws-chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #555;
+}
+.ws-leg-base::before,
+.ws-leg-save::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.ws-leg-base::before {
+  background: #c8d2e0;
+}
+.ws-leg-save::before {
+  background: #8fd19e;
+}
+.ws-footer {
+  padding: 8px 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.ws-cta {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #00b0ff;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.ws-note {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  font-weight: bold;
+}
+@media (max-width: 800px) {
+  .ws-results {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ws-split {
+    grid-template-columns: 1fr;
+  }
+  .ws-inputs {
+    grid-template-columns: 1fr 100px;
+  }
+}

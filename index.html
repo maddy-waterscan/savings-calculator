@@ -1,128 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Waterscan Savings Calculator</title>
-  <link rel="stylesheet" href="waterscan.css">
-</head>
-<body>
-  <!-- Waterscan Savings Calculator - Drop-in widget -->
-  <div id="waterscan-calculator" class="ws-wrapper">
-    <div class="ws-card">
-      <header class="ws-header">
-        <h2 class="ws-title">Water and Cost Savings Estimator</h2>
-        <p class="ws-sub">Adjust the sliders or type values. Results update live.</p>
-      </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Waterscan Savings Calculator</title>
+    <link rel="stylesheet" href="waterscan.css" />
+  </head>
+  <body>
+    <!-- Waterscan Savings Calculator - Drop-in widget -->
+    <div id="waterscan-calculator" class="ws-wrapper">
+      <div class="ws-card">
+        <header class="ws-header">
+          <h2 class="ws-title">Water and Cost Savings Estimator</h2>
+          <p class="ws-sub">
+            Adjust the sliders or type values. Results update live.
+          </p>
+        </header>
 
-      <section class="ws-controls">
-        <div class="ws-field">
-          <label for="wsSites">Number of sites</label>
-          <div class="ws-inputs">
-            <input id="wsSites" type="range" min="1" max="200" step="1" value="5"/>
-            <input id="wsSitesNum" type="number" min="1" max="10000" step="1" value="5"/>
-          </div>
-        </div>
-
-        <div class="ws-field">
-          <label for="wsUse">Average annual water use per site (m³)</label>
-          <div class="ws-inputs">
-            <input id="wsUse" type="range" min="100" max="500000" step="100" value="20000"/>
-            <input id="wsUseNum" type="number" min="1" step="1" value="20000"/>
-          </div>
-        </div>
-
-        <div class="ws-field">
-          <label for="wsTariff">Current water cost (£ per m³)</label>
-          <div class="ws-inputs">
-            <input id="wsTariff" type="range" min="0.1" max="10" step="0.05" value="2.20"/>
-            <input id="wsTariffNum" type="number" min="0" step="0.01" value="2.20"/>
-          </div>
-        </div>
-
-        <div class="ws-split">
+        <section class="ws-controls">
           <div class="ws-field">
-            <label for="wsEff">Expected efficiency gain (%)</label>
+            <label for="wsSites">Number of sites</label>
             <div class="ws-inputs">
-              <input id="wsEff" type="range" min="0" max="30" step="1" value="8"/>
-              <input id="wsEffNum" type="number" min="0" max="100" step="0.1" value="8"/>
-            </div>
-            <small>Example savings from audits, optimisation, tariff checks.</small>
-          </div>
-          <div class="ws-field">
-            <label for="wsLeak">Leak loss reduction (%)</label>
-            <div class="ws-inputs">
-              <input id="wsLeak" type="range" min="0" max="30" step="1" value="5"/>
-              <input id="wsLeakNum" type="number" min="0" max="100" step="0.1" value="5"/>
-            </div>
-            <small>Example savings from smart monitoring and rapid fix.</small>
-          </div>
-        </div>
-
-        <details class="ws-adv">
-          <summary>Advanced assumptions</summary>
-          <div class="ws-field">
-            <label for="wsService">Annual Waterscan service fee (£)</label>
-            <div class="ws-inputs">
-              <input id="wsService" type="range" min="0" max="500000" step="100" value="25000"/>
-              <input id="wsServiceNum" type="number" min="0" step="100" value="25000"/>
+              <input
+                id="wsSites"
+                type="range"
+                min="1"
+                max="200"
+                step="1"
+                value="5"
+              />
+              <input
+                id="wsSitesNum"
+                type="number"
+                min="1"
+                max="10000"
+                step="1"
+                value="5"
+              />
             </div>
           </div>
+
           <div class="ws-field">
-            <label for="wsCO2">Carbon factor (kg CO₂e per m³)</label>
+            <label for="wsUse">Average annual water use per site (m³)</label>
             <div class="ws-inputs">
-              <input id="wsCO2" type="range" min="0" max="2" step="0.01" value="0.34"/>
-              <input id="wsCO2Num" type="number" min="0" step="0.01" value="0.34"/>
+              <input
+                id="wsUse"
+                type="range"
+                min="100"
+                max="500000"
+                step="100"
+                value="20000"
+              />
+              <input
+                id="wsUseNum"
+                type="number"
+                min="1"
+                step="1"
+                value="20000"
+              />
             </div>
-            <small>Placeholder factor. Replace with your accepted source.</small>
           </div>
-        </details>
-      </section>
 
-      <section class="ws-results">
-        <div class="ws-metric">
-          <div class="ws-kpi" id="wsWaterSaved">0 m³</div>
-          <div class="ws-kpi-sub">Estimated water saved per year</div>
-        </div>
-        <div class="ws-metric">
-          <div class="ws-kpi" id="wsMoneySaved">£0</div>
-          <div class="ws-kpi-sub">Gross cost savings per year</div>
-        </div>
-        <div class="ws-metric">
-          <div class="ws-kpi" id="wsNetSavings">£0</div>
-          <div class="ws-kpi-sub">Net savings after fees</div>
-        </div>
-        <div class="ws-metric">
-          <div class="ws-kpi" id="wsCO2Saved">0 tCO₂e</div>
-          <div class="ws-kpi-sub">Estimated emissions avoided per year</div>
-        </div>
-      </section>
+          <div class="ws-field">
+            <label for="wsTariff">Current water cost (£ per m³)</label>
+            <div class="ws-inputs">
+              <input
+                id="wsTariff"
+                type="range"
+                min="0.1"
+                max="10"
+                step="0.05"
+                value="2.20"
+              />
+              <input
+                id="wsTariffNum"
+                type="number"
+                min="0"
+                step="0.01"
+                value="2.20"
+              />
+            </div>
+          </div>
 
-      <section class="ws-chart">
-        <div class="ws-bar">
-          <div class="ws-bar-seg ws-bar-base" id="wsBarBase" style="width:60%"></div>
-          <div class="ws-bar-seg ws-bar-save" id="wsBarSave" style="width:40%"></div>
-        </div>
-        <div class="ws-chart-legend">
-          <span class="ws-leg-base">Current spend</span>
-          <span class="ws-leg-save">Potential net saving</span>
-        </div>
-      </section>
+          <div class="ws-split">
+            <div class="ws-field">
+              <label for="wsEff">Expected efficiency gain (%)</label>
+              <div class="ws-inputs">
+                <input
+                  id="wsEff"
+                  type="range"
+                  min="0"
+                  max="30"
+                  step="1"
+                  value="8"
+                />
+                <input
+                  id="wsEffNum"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="8"
+                />
+              </div>
+              <small
+                >Example savings from audits, optimisation, tariff
+                checks.</small
+              >
+            </div>
+            <div class="ws-field">
+              <label for="wsLeak">Leak loss reduction (%)</label>
+              <div class="ws-inputs">
+                <input
+                  id="wsLeak"
+                  type="range"
+                  min="0"
+                  max="30"
+                  step="1"
+                  value="5"
+                />
+                <input
+                  id="wsLeakNum"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="5"
+                />
+              </div>
+              <small
+                >Example savings from smart monitoring and rapid fix.</small
+              >
+            </div>
+          </div>
 
-      <footer class="ws-footer">
-        <button class="ws-cta" id="wsCTA">Request a detailed assessment</button>
-        <p class="ws-note">Outputs are indicative without making any claims. Confirm Calculations with Barry or Neil???</p>
-      </footer>
+          <details class="ws-adv">
+            <summary>Advanced assumptions</summary>
+            <div class="ws-field">
+              <label for="wsService">Annual Waterscan service fee (£)</label>
+              <div class="ws-inputs">
+                <input
+                  id="wsService"
+                  type="range"
+                  min="0"
+                  max="500000"
+                  step="100"
+                  value="25000"
+                />
+                <input
+                  id="wsServiceNum"
+                  type="number"
+                  min="0"
+                  step="100"
+                  value="25000"
+                />
+              </div>
+            </div>
+            <div class="ws-field">
+              <label for="wsCO2">Carbon factor (kg CO₂e per m³)</label>
+              <div class="ws-inputs">
+                <input
+                  id="wsCO2"
+                  type="range"
+                  min="0"
+                  max="2"
+                  step="0.01"
+                  value="0.34"
+                />
+                <input
+                  id="wsCO2Num"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value="0.34"
+                />
+              </div>
+              <small
+                >Placeholder factor. Replace with your accepted source.</small
+              >
+            </div>
+          </details>
+        </section>
+
+        <section class="ws-results">
+          <div class="ws-metric">
+            <div class="ws-kpi" id="wsWaterSaved">0 m³</div>
+            <div class="ws-kpi-sub">Estimated water saved per year</div>
+          </div>
+          <div class="ws-metric">
+            <div class="ws-kpi" id="wsMoneySaved">£0</div>
+            <div class="ws-kpi-sub">Gross cost savings per year</div>
+          </div>
+          <div class="ws-metric">
+            <div class="ws-kpi" id="wsNetSavings">£0</div>
+            <div class="ws-kpi-sub">Net savings after fees</div>
+          </div>
+          <div class="ws-metric">
+            <div class="ws-kpi" id="wsCO2Saved">0 tCO₂e</div>
+            <div class="ws-kpi-sub">Estimated emissions avoided per year</div>
+          </div>
+        </section>
+
+        <section class="ws-chart">
+          <div class="ws-bar">
+            <div
+              class="ws-bar-seg ws-bar-base"
+              id="wsBarBase"
+              style="width: 60%"
+            ></div>
+            <div
+              class="ws-bar-seg ws-bar-save"
+              id="wsBarSave"
+              style="width: 40%"
+            ></div>
+          </div>
+          <div class="ws-chart-legend">
+            <span class="ws-leg-base">Current spend</span>
+            <span class="ws-leg-save">Potential net saving</span>
+          </div>
+        </section>
+
+        <footer class="ws-footer">
+          <button class="ws-cta" id="wsCTA">
+            Request a detailed assessment
+          </button>
+          <p class="ws-note">
+            Outputs are indicative without making any claims. Confirm
+            Calculations with Barry or Neil???
+          </p>
+        </footer>
+      </div>
     </div>
-  </div>
 
-  <script>
-  // Optional: override defaults before loading the script
-  window.WS_CONFIG = {
-    // i18n: { locale: 'en-GB', currency: 'GBP' },
-    // inputs: { tariff: { value: 2.5 } }
-  };
-</script>
-<script src="waterscan.js"></script>
-</body>
+    <script>
+      // Optional: override defaults before loading the script
+      window.WS_CONFIG = {
+        // i18n: { locale: 'en-GB', currency: 'GBP' },
+        // inputs: { tariff: { value: 2.5 } }
+      };
+    </script>
+    <script src="waterscan.js"></script>
+  </body>
 </html>
