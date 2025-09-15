@@ -1,5 +1,6 @@
 # Waterscan Savings Calculator - Starter
 Edit in VS Code. Open `index.html` with Live Server to preview.
+I have also connected a netlify project to it to show Neil and Barry
 
 ## Files
 - `index.html` - markup and includes
@@ -7,12 +8,6 @@ Edit in VS Code. Open `index.html` with Live Server to preview.
 - `waterscan.js` - logic
 
 ## Embed in WordPress quickly
-Option A - Custom HTML block
-1. Open `index.html` and copy the inner `<div id="waterscan-calculator" ...>...</div>` plus the button.
-2. Paste into a WordPress Custom HTML block.
-3. Also upload `waterscan.css` and `waterscan.js` to your theme or a code snippet plugin that lets you enqueue them, or paste their contents into your theme's additional CSS and a code snippet for JS.
-
-Option B - Enqueue files in theme or child theme
 - Place the three files in your child theme and enqueue `waterscan.css` and `waterscan.js` via `functions.php`.
 
 ## Custom events for analytics
